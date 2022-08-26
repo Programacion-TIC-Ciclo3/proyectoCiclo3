@@ -1,4 +1,5 @@
-package com.udea.proyet.Clases;
+package com.udea.proyect.Clases;
+
 
 public class Empresa {
     private String nombre, direccion;
