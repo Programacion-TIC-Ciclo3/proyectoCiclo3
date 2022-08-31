@@ -1,6 +1,6 @@
 package com.udea.proyect.Clases;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 
@@ -9,7 +9,8 @@ public class Enterprise {
     private int id;
     private ArrayList<Employee> users;
     private ArrayList<Transaction> transactions;
-    private Date createdAt, updatedAt;
+    private Date createdAt;
+    private Date updatedAt;
 
 
     public Enterprise(String name, String document, String phone, String address, int id, Date createdAt, Date updatedAt) {
@@ -126,6 +127,10 @@ public class Enterprise {
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt;
     }
-}
 
+    public String toString() {
+        return ("name=" + name + ", document=" + document + ", phone=" + phone + ", adress=" + address + ", id=" + id + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt);
+
+}
+}
     

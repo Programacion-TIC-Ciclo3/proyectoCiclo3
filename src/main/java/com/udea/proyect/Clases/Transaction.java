@@ -1,16 +1,18 @@
 package com.udea.proyect.Clases;
 
-import java.sql.Date;
+import java.util.Date;
+
+
 
 public class Transaction {
-    private float amount;
+    private double amount;
     private int id;
     private String concept;
     private Employee user;
     private Enterprise enterprise;
     private Date updatedAt, createdAt;
 
-    public Transaction (int id, String concept, float amount, Employee user, Enterprise enterprise, Date updatedAt, Date createdAt) {
+    public Transaction (int id, String concept, double amount, Employee user, Enterprise enterprise, Date createdAt, Date  updatedAt) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
@@ -36,7 +38,7 @@ public class Transaction {
          this.concept = concept;
     }
 
-    public float getAmount() {
+    public double getAmount() {
         return amount;
     }
 
@@ -75,5 +77,9 @@ public class Transaction {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String toString() {
+        return ("id=" + id + ", concept=" + concept + ",amount=" + amount + ", user=" + user +", enterprise=" + enterprise + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt +")");
     
+}
 }

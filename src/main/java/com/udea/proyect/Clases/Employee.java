@@ -1,6 +1,6 @@
 package com.udea.proyect.Clases;
 
-import java.sql.Date;
+import java.util.Date;
 import java.util.ArrayList;
 
 public class Employee {
@@ -100,5 +100,9 @@ public class Employee {
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
+
+    public String toString() {
+        return ("name=" + name + ", createdAt=" + createdAt + ", email=" + email + ", rol" + rol + ", id=" + id + ", enterprise" + enterprise + ", updatedAt=" + updatedAt + ")");
         
+}
 }
