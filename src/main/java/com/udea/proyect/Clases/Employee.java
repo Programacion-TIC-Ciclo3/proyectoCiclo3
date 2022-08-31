@@ -4,21 +4,24 @@ import java.util.Date;
 import java.util.ArrayList;
 
 public class Employee {
-    private String name, email, rol;
+    private String name, email;
+    private Role role;
     private int id;
     private Enterprise enterprise;
     private ArrayList<Transaction> transactions;
     private Date updatedAt, createdAt;
+    private Profile profile;
 
-    public Employee(String name, String email, String rol, int id, Enterprise enterprise, Date updatedAt, Date createdAt){
+    public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, Date updatedAt, Date createdAt){
         this.name = name;
         this.email = email;
-        this.rol = rol;
+        this.role = role;
         this.id = id;
         this.enterprise = enterprise;
         this.transactions = new ArrayList<Transaction>();
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
+        this.profile = profile;
     }
 
     public String getName(){
@@ -37,12 +40,12 @@ public class Employee {
         this.email = email;
     }
 
-    public String getRol(){
-        return rol;
+    public Role getRol(){
+        return role;
     }
 
     public void setRol(String rol) {
-        this.rol = rol;
+        this.role = role;
     }
 
     public int getId() {
@@ -101,8 +104,16 @@ public class Employee {
         this.createdAt = createdAt;
     }
 
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
+    }
+
     public String toString() {
-        return ("name=" + name + ", createdAt=" + createdAt + ", email=" + email + ", rol" + rol + ", id=" + id + ", enterprise" + enterprise + ", updatedAt=" + updatedAt + ")");
+        return ("name=" + name + ", createdAt=" + createdAt + ", email=" + email + ", role=" + role + ", id=" + id + ", enterprise" + enterprise + ", updatedAt=" + updatedAt + ")");
         
 }
 }
