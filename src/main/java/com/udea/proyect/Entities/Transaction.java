@@ -1,6 +1,6 @@
-package com.udea.proyect.Clases;
+package com.udea.proyect.Entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 
 
@@ -10,9 +10,9 @@ public class Transaction {
     private String concept;
     private Employee user;
     private Enterprise enterprise;
-    private Date updatedAt, createdAt;
+    private LocalDate updatedAt, createdAt;
 
-    public Transaction (int id, String concept, double amount, Employee user, Enterprise enterprise, Date createdAt, Date  updatedAt) {
+    public Transaction (int id, String concept, double amount, Employee user, Enterprise enterprise, LocalDate createdAt, LocalDate  updatedAt) {
         this.id = id;
         this.concept = concept;
         this.amount = amount;
@@ -62,24 +62,24 @@ public class Transaction {
         this.enterprise = enterprise;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
     public String toString() {
-        return ("id=" + id + ", concept=" + concept + ",amount=" + amount + ", user=" + user +", enterprise=" + enterprise + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt +")");
+        return ("Transaction {id=" + id + ", concept=" + concept + ",amount=" + amount + ", user=" + user +", enterprise=" + enterprise + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt +"}");
     
 }
 }

@@ -1,13 +1,12 @@
-package com.udea.proyect.Clases;
+package com.udea.proyect.Entities;
 
-import java.util.Date;
-
+import java.time.LocalDate;
 
 public class Profile {
     private String id, image, phone;
-    private Date createdAt, updatedAt;
+    private LocalDate createdAt, updatedAt;
 
-    public Profile(String id, String image, String phone, Date createdAt, Date updatedAt) {
+    public Profile(String id, String image, String phone, LocalDate createdAt, LocalDate updatedAt) {
         this.id = id;
         this.image = image;
         this.phone = phone;
@@ -39,23 +38,23 @@ public class Profile {
         this.phone = phone;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     } 
 
     public String toString() {
-        return ("id=" + id + ", image=" + image + ", phone=" + phone + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + ")");
+        return ("Profile {id=" + id + ", image=" + image + ", phone=" + phone + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}");
 }
 }

@@ -1,4 +1,4 @@
-package com.udea.proyect.Clases;
+package com.udea.proyect.Entities;
 
 public class Role {
     private String role;
@@ -16,7 +16,7 @@ public class Role {
     }
 
     public String toString() {
-        return "Role{" + role + "}";
+        return "Role {" + role + "}";
     }
 
 }

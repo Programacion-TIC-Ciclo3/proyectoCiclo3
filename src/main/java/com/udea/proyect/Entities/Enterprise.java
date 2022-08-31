@@ -1,6 +1,6 @@
-package com.udea.proyect.Clases;
+package com.udea.proyect.Entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -9,11 +9,11 @@ public class Enterprise {
     private int id;
     private ArrayList<Employee> users;
     private ArrayList<Transaction> transactions;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDate createdAt;
+    private LocalDate updatedAt;
 
 
-    public Enterprise(String name, String document, String phone, String address, int id, Date createdAt, Date updatedAt) {
+    public Enterprise(String name, String document, String phone, String address, int id, LocalDate createdAt, LocalDate updatedAt) {
         this.name = name;
         this.document = document;
         this.phone = phone;
@@ -112,24 +112,24 @@ public class Enterprise {
         else { } 
     } 
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getUpdatedAt() {
+    public LocalDate getUpdatedAt() {
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
     public String toString() {
-        return ("name=" + name + ", document=" + document + ", phone=" + phone + ", adress=" + address + ", id=" + id + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt);
+        return ("Enterprise {name=" + name + ", document=" + document + ", phone=" + phone + ", adress=" + address + ", id=" + id + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}");
 
 }
 }

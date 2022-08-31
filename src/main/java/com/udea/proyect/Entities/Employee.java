@@ -1,6 +1,6 @@
 package com.udea.proyect.Entities;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Employee {
@@ -9,10 +9,10 @@ public class Employee {
     private int id;
     private Enterprise enterprise;
     private ArrayList<Transaction> transactions;
-    private Date updatedAt, createdAt;
+    private LocalDate updatedAt, createdAt;
     private Profile profile;
 
-    public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, Date updatedAt, Date createdAt){
+    public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, LocalDate updatedAt, LocalDate createdAt){
         this.name = name;
         this.email = email;
         this.role = role;
@@ -88,19 +88,19 @@ public class Employee {
         else { } 
     } 
 
-    public Date getUpdatedAt(){
+    public LocalDate getUpdatedAt(){
         return updatedAt;
     }
 
-    public void setUpdatedAt(Date updatedAt) {
+    public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
     }
 
-    public Date getCreatedAt() {
+    public LocalDate getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(LocalDate createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -113,7 +113,7 @@ public class Employee {
     }
 
     public String toString() {
-        return ("name=" + name + ", createdAt=" + createdAt + ", email=" + email + ", role=" + role + ", id=" + id + ", enterprise" + enterprise + ", updatedAt=" + updatedAt + ")");
+        return ("Employee {name=" + name + ", email=" + email + ", role=" + role + ", id=" + id + ", enterprise= " + enterprise + ", updatedAt=" + updatedAt + ", createdAt=" + createdAt + "}");
         
 }
 }
