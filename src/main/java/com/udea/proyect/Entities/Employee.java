@@ -1,4 +1,4 @@
-package com.udea.proyect.Clases;
+package com.udea.proyect.Entities;
 
 import java.util.Date;
 import java.util.ArrayList;
@@ -44,7 +44,7 @@ public class Employee {
         return role;
     }
 
-    public void setRol(String rol) {
+    public void setRol(Role role) {
         this.role = role;
     }
 
