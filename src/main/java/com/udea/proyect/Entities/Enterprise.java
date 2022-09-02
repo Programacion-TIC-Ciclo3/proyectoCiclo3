@@ -22,9 +22,9 @@ public class Enterprise {
     private String address;
     @Id
     private int id;
-    @OneToMany(mappedBy = "enterprise")
+    @Column
     private ArrayList<Employee> users;
-    @OneToMany(mappedBy = "enterprise")
+    @Column
     private ArrayList<Transaction> transactions;
     @Column
     private LocalDate createdAt;

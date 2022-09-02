@@ -21,7 +21,7 @@ public class Profile {
     private LocalDate createdAt;
     @Column
     private LocalDate updatedAt;
-    @OneToOne
+    @Column
     private Employee user;
 
     public Profile(String id, String image, String phone, LocalDate createdAt, LocalDate updatedAt, Employee user) {

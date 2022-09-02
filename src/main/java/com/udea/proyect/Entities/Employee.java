@@ -16,11 +16,11 @@ public class Employee {
     private String name;
     @Column
     private String email;
-    @OneToMany(mappedBy = "user")
+    @Column
     private Role role;
     @Id
     private int id;
-    @OneToMany
+    @Column
     private Enterprise enterprise;
     @Column
     private ArrayList<Transaction> transactions;
@@ -28,7 +28,7 @@ public class Employee {
     private LocalDate updatedAt;
     @Column
     private LocalDate createdAt;
-    @OneToOne(mappedBy = "user")
+    @Column
     private Profile profile;
 
     public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, LocalDate updatedAt, LocalDate createdAt){

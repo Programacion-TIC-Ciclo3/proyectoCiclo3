@@ -17,9 +17,9 @@ public class Transaction {
     private int id;
     @Column
     private String concept;
-    @ManyToOne
+    @Column
     private Employee user;
-    @ManyToOne
+    @Column
     private Enterprise enterprise;
     @Column
     private LocalDate updatedAt;
