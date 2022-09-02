@@ -10,7 +10,8 @@ public class Transaction {
     private String concept;
     private Employee user;
     private Enterprise enterprise;
-    private LocalDate updatedAt, createdAt;
+    private LocalDate updatedAt;
+    private LocalDate createdAt;
 
     public Transaction (int id, String concept, double amount, Employee user, Enterprise enterprise, LocalDate createdAt, LocalDate  updatedAt) {
         this.id = id;
