@@ -2,14 +2,33 @@ package com.udea.proyect.Entities;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Employee")
 public class Employee {
-    private String name, email;
+    @Column
+    private String name;
+    @Column
+    private String email;
+    @OneToMany(mappedBy = "user")
     private Role role;
+    @Id
     private int id;
+    @OneToMany
     private Enterprise enterprise;
+    @Column
     private ArrayList<Transaction> transactions;
-    private LocalDate updatedAt, createdAt;
+    @Column
+    private LocalDate updatedAt;
+    @Column
+    private LocalDate createdAt;
+    @OneToOne(mappedBy = "user")
     private Profile profile;
 
     public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, LocalDate updatedAt, LocalDate createdAt){

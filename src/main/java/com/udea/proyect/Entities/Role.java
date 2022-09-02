@@ -1,22 +1,32 @@
 package com.udea.proyect.Entities;
 
-public class Role {
-    private String role;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
-    public Role(String role) {
-        this.role = role;
+@Entity
+@Table(name = "role")
+public enum Role{
+	ADMINISTRADOR("Administrador", null), OPERARIO("Operario", null); 
+	@Column
+	private String role;
+    @Column
+    private Employee user;
+	
+	private Role (String roleString, Employee user) {
+		this.role = roleString;
+        this.user = user;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+    public Employee getUser() {
+        return user;
     }
 
-    public String getRole() {
-        return role;
+    public void setUser(Employee user) {
+        this.user = user;
     }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
-
-    public String toString() {
-        return "Role {" + role + "}";
-    }
-
 }

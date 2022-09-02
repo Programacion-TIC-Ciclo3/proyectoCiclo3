@@ -2,15 +2,28 @@ package com.udea.proyect.Entities;
 
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
-
+@Entity
+@Table(name = "transactions")
 public class Transaction {
+    @Column
     private double amount;
+    @Id
     private int id;
+    @Column
     private String concept;
+    @ManyToOne
     private Employee user;
+    @ManyToOne
     private Enterprise enterprise;
+    @Column
     private LocalDate updatedAt;
+    @Column
     private LocalDate createdAt;
 
     public Transaction (int id, String concept, double amount, Employee user, Enterprise enterprise, LocalDate createdAt, LocalDate  updatedAt) {

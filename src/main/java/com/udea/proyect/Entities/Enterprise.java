@@ -3,13 +3,32 @@ package com.udea.proyect.Entities;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "enterprise")
 public class Enterprise {
-    private String name, document, phone, address;
+    @Column
+    private String name;
+    @Column
+    private String document;
+    @Column
+    private String phone;
+    @Column
+    private String address;
+    @Id
     private int id;
+    @OneToMany(mappedBy = "enterprise")
     private ArrayList<Employee> users;
+    @OneToMany(mappedBy = "enterprise")
     private ArrayList<Transaction> transactions;
+    @Column
     private LocalDate createdAt;
+    @Column
     private LocalDate updatedAt;
 
 
