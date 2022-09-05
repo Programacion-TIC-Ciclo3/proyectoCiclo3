@@ -6,8 +6,8 @@ Este proyecto se desarrollara en 4 Sprits, el primero de dos semanas en donde se
 el tercer sprint con duracion de dos semanas se realizara con el fin de desarrollar el API REST de la aplicacion y los servicios para las clases, y por ultimo el cuarto sprint esta destinado con tiempo de dos semanas en la cual se crearan las entidades y repositorios, las GUI, la autenticación y el despliegue.
 
 <h2> Grupo de Desarrollo </h3>
-Simon Espinosa 
-<br>Yohan Ariza
-<br>Julian Leonardo Contreras Piedrahita
-<br>Milton Obed Rayo Viana
+Julian Leonardo Contreras Piedrahita - Desarrollador 
+<br>Milton Obed Rayo Viana - Desarrollador
+<br>Simon Espinosa - Scrum Master
+<br>Yohan Ariza - Administración Bases de Datos
 
