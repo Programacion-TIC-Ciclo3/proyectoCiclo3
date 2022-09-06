@@ -1,11 +1,12 @@
 package com.udea.proyect.Entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -21,24 +22,24 @@ public class Enterprise {
     private String address;
     @Id
     private int id;
-    @Column
-    private ArrayList<Employee> users;
-    @Column
-    private ArrayList<Transaction> transactions;
+    @OneToMany(mappedBy = "enterprise")
+    private List<Employee> users;
+    @OneToMany(mappedBy = "enterprise")
+    private List<Transaction> transactions;
     @Column
     private LocalDate createdAt;
     @Column
     private LocalDate updatedAt;
 
 
-    public Enterprise(String name, String document, String phone, String address, int id, LocalDate createdAt, LocalDate updatedAt) {
+    public Enterprise(String name, String document, String phone, String address, int id, LocalDate createdAt, LocalDate updatedAt, List<Transaction> transactions, List<Employee> users) {
         this.name = name;
         this.document = document;
         this.phone = phone;
         this.address = address;
         this.id = id;
-        this.users = new ArrayList<Employee>();
-        this.transactions = new ArrayList<Transaction>();
+        this.users = users;
+        this.transactions = transactions;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
 }

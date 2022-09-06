@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,13 +21,16 @@ public class Profile {
     private LocalDate createdAt;
     @Column
     private LocalDate updatedAt;
+    @OneToOne
+    private Employee user;
 
-    public Profile(String id, String image, String phone, LocalDate createdAt, LocalDate updatedAt) {
+    public Profile(String id, String image, String phone, LocalDate createdAt, LocalDate updatedAt, Employee user) {
         this.id = id;
         this.image = image;
         this.phone = phone;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+        this.user = user;
     }
 
     public String getId() {
@@ -69,6 +73,13 @@ public class Profile {
         this.createdAt = createdAt;
     } 
 
+    public Employee user() {
+        return user;
+    }
+
+    public void setUser(Employee user) {
+        this.user = user;
+    }
 
     public String toString() {
         return ("Profile {id=" + id + ", image=" + image + ", phone=" + phone + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt + "}");

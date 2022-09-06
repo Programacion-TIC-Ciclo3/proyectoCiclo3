@@ -5,10 +5,11 @@ import java.time.LocalDate;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "transactions")
+@Table(name = "transaction")
 public class Transaction {
     @Column
     private double amount;
@@ -16,9 +17,9 @@ public class Transaction {
     private int id;
     @Column
     private String concept;
-    @Column
+    @ManyToOne
     private Employee user;
-    @Column
+    @ManyToOne
     private Enterprise enterprise;
     @Column
     private LocalDate updatedAt;

@@ -1,10 +1,14 @@
 package com.udea.proyect.Entities;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,24 +22,24 @@ public class Employee {
     private Role role;
     @Id
     private int id;
-    @Column
+    @ManyToOne
     private Enterprise enterprise;
-    @Column
-    private ArrayList<Transaction> transactions;
+    @OneToMany(mappedBy = "user")
+    private List<Transaction> transactions;
     @Column
     private LocalDate updatedAt;
     @Column
     private LocalDate createdAt;
-    @Column
+    @OneToOne(mappedBy = "user")
     private Profile profile;
 
-    public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, LocalDate updatedAt, LocalDate createdAt){
+    public Employee(String name, String email, Role role, int id, Enterprise enterprise, Profile profile, LocalDate updatedAt, LocalDate createdAt, List<Transaction> transactions){
         this.name = name;
         this.email = email;
         this.role = role;
         this.id = id;
         this.enterprise = enterprise;
-        this.transactions = new ArrayList<Transaction>();
+        this.transactions = transactions;
         this.updatedAt = updatedAt;
         this.createdAt = createdAt;
         this.profile = profile;
@@ -79,6 +83,14 @@ public class Employee {
 
     public void setEnterprise(Enterprise enterprise) {
         this.enterprise = enterprise;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
     }
 
     public void addTransaction(Transaction transaction) {
