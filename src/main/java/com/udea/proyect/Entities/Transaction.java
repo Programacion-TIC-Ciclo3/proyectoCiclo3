@@ -36,6 +36,10 @@ public class Transaction {
         this.createdAt = createdAt;
     }
 
+    public Transaction(){
+        
+    }
+
     public int getId() {
         return id;
     }

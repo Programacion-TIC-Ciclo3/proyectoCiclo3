@@ -45,6 +45,10 @@ public class Employee {
         this.profile = profile;
     }
 
+    public Employee(){
+        
+    }
+
     public String getName(){
         return name;
     }

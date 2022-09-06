@@ -43,6 +43,11 @@ public class Enterprise {
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
 }
+
+    public Enterprise(){
+
+    }
+    
     public String getName() {
         return name;
     }

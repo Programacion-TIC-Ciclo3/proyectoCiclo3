@@ -33,6 +33,10 @@ public class Profile {
         this.user = user;
     }
 
+    public Profile(){
+        
+    }
+
     public String getId() {
         return id;
     }
