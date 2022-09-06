@@ -7,7 +7,7 @@ el tercer sprint con duracion de dos semanas se realizara con el fin de desarrol
 
 <h2> Grupo de Desarrollo </h3>
 Julian Leonardo Contreras Piedrahita - Desarrollador 
-<br>Milton Obed Rayo Viana - Desarrollador
-<br>Simon Espinosa - Scrum Master
-<br>Yohan Ariza - Administración Bases de Datos
+<br>Milton Obed Rayo Viana - Desarrollador - Grupo 11 y 12
+<br>Simon Espinosa - Scrum Master - Grupo 11 y 12
+<br>Yohan Ariza - Administración Bases de Datos - Grupo 11 y 12
 
