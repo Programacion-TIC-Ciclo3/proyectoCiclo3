@@ -24,6 +24,7 @@ public class Employee {
     private int id;
     @ManyToOne
     private Enterprise enterprise;
+    @Column
     @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
     @Column
@@ -46,7 +47,7 @@ public class Employee {
     }
 
     public Employee(){
-        
+
     }
 
     public String getName(){
