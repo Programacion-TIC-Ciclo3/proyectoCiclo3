@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 import com.udea.proyect.Entities.Employee;
 import com.udea.proyect.Repositories.RepositoriesEmployee;
 
-import net.bytebuddy.implementation.bytecode.constant.IntegerConstant;
-
-
 @Service
 public class EmployeeServices {
     @Autowired
@@ -43,11 +40,7 @@ public class EmployeeServices {
     }
 
 
-    @Transactional
-    public Employee updateEmployee(Employee employee, Integer id) throws Exception{
-        repositoryEmployee.upddate(employee.getName(), employee.getEmail(), employee.getCreatedAt(), employee.getUpdatedAt(), employee.getProfile(), employee.getRol(), employee.getEnterprise(), id);
-        return getEmployeeById(id);
-    }
+
 
     }
 

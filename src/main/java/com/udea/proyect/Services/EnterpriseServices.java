@@ -2,19 +2,19 @@ package com.udea.proyect.Services;
 
 import java.util.List;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.udea.proyect.Entities.Enterprise;
 import com.udea.proyect.Repositories.RepositoriesEnterpise;
 
+@Service
 public class EnterpriseServices {
     @Autowired
     private RepositoriesEnterpise repositoryEnterprise;
 
 
-    public List<Enterprise> getEnterprise(){
+    public List<Enterprise> getEnterprises(){
         return repositoryEnterprise.findAll();
     }
 
@@ -27,20 +27,9 @@ public class EnterpriseServices {
         return repositoryEnterprise.findById(id).get();
     }
 
-    public String deleteEmployeeById(Integer id){
+    public String deleteEnterpriseById(Integer id){
         repositoryEnterprise.deleteById(id);
-        return "Usuario eliminado correctamente";
+        return "Empresa eliminada correctamente";
     }
 
-    public String deleteEmployee(Enterprise enterprise){
-        repositoryEnterprise.delete(enterprise);
-        return "Usuario eliminado correctamente";
-    }
-
-
-    @Transactional
-    public Enterprise updateEnterprise(Enterprise enterprise, Integer id) throws Exception{
-        repositoryEnterprise.upddate(enterprise.getName(), enterprise.getPhone(), enterprise.getAddress(), enterprise.getCreatedAt(), enterprise.getUpdatedAt(), enterprise.getDocument());
-        return getEnterpriseById(id);
-    }
 }

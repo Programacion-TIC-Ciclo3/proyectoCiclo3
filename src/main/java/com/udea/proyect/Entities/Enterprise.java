@@ -47,7 +47,7 @@ public class Enterprise {
     public Enterprise(){
 
     }
-    
+
     public String getName() {
         return name;
     }
@@ -88,53 +88,6 @@ public class Enterprise {
         this.id = id;
     }
 
-    public void addUser(Employee user) {
-        users.add(user);
-    }
- 
-    public Employee getPositionUser (int posicion) { 
-        try {
-            if (posicion >= 0 && posicion < users.size() ) {
-                return users.get(posicion); }
-        } catch (Exception e) {
-            return null;
-        }
-        return null;
-    }
-
-    public int getTamañoUsers () { 
-        return users.size(); 
-    }
- 
-    public void removeUsers(int posicion) {  
-        if (posicion >= 0 && posicion < users.size() ) {
-            users.remove(posicion); }
-        else { } 
-    } 
-
-    public void addTransactions(Transaction transaction) {
-        transactions.addAll(transactions);
-    }
- 
-    public Transaction getPositionTransactions (int posicion) { 
-        try {
-            if (posicion >= 0 && posicion < transactions.size() ) {
-                return transactions.get(posicion); }
-        } catch (Exception e) {
-            return null;
-        }
-        return null;
-    }
-
-    public int getTamañoTransactions () { 
-        return transactions.size(); 
-    }
- 
-    public void removeTransaction (int posicion) {  
-        if (posicion >= 0 && posicion < transactions.size() ) {
-            transactions.remove(posicion); }
-        else { } 
-    } 
 
     public LocalDate getCreatedAt() {
         return createdAt;
@@ -150,6 +103,22 @@ public class Enterprise {
 
     public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public List<Transaction> getTransactions(){
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public List<Employee> users(){
+        return users;
+    }
+
+    public void setUsers(List<Employee> users) {
+        this.users = users;
     }
 
     public String toString() {

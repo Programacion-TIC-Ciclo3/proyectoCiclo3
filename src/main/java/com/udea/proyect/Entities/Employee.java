@@ -98,29 +98,6 @@ public class Employee {
         this.transactions = transactions;
     }
 
-    public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
-    }
- 
-    public Transaction getPositionTransaction (int posicion) { 
-        try {
-            if (posicion >= 0 && posicion < transactions.size() ) {
-                return transactions.get(posicion); }
-        } catch (Exception e) {
-            return null;
-        }
-        return null;
-    }
-
-    public int getTamañoTransactions () { 
-        return transactions.size(); 
-    }
- 
-    public void removeTransaction(int posicion) {  
-        if (posicion >= 0 && posicion < transactions.size() ) {
-            transactions.remove(posicion); }
-        else { } 
-    } 
 
     public LocalDate getUpdatedAt(){
         return updatedAt;
