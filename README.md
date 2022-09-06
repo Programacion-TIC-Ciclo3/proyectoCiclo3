@@ -6,7 +6,7 @@ Este proyecto se desarrollara en 4 Sprits, el primero de dos semanas en donde se
 el tercer sprint con duracion de dos semanas se realizara con el fin de desarrollar el API REST de la aplicacion y los servicios para las clases, y por ultimo el cuarto sprint esta destinado con tiempo de dos semanas en la cual se crearan las entidades y repositorios, las GUI, la autenticación y el despliegue.
 
 <h2> Grupo de Desarrollo </h3>
-Julian Leonardo Contreras Piedrahita - Desarrollador 
+Julian Leonardo Contreras Piedrahita - Desarrollador - Grupo 29 y 30
 <br>Milton Obed Rayo Viana - Desarrollador - Grupo 11 y 12
 <br>Simon Espinosa - Scrum Master - Grupo 11 y 12
 <br>Yohan Ariza - Administración Bases de Datos - Grupo 11 y 12
