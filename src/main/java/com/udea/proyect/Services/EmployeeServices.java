@@ -31,15 +31,6 @@ public class EmployeeServices {
         repositoryEmployee.deleteById(id);
         return "Usuario eliminado correctamente";
     }
-
-    public String deleteEmployee(Employee employee){
-        repositoryEmployee.delete(employee);
-        return "Usuario eliminado correctamente";
-    }
-
-
-
-
     }
 
 

@@ -113,7 +113,7 @@ public class Enterprise {
         this.transactions = transactions;
     }
 
-    public List<Employee> users(){
+    public List<Employee> getUsers(){
         return users;
     }
 
