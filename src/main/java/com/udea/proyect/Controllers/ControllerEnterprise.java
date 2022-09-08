@@ -48,7 +48,7 @@ public class ControllerEnterprise {
         }
     }
 
-    @PatchMapping("/enterprise/{id}")
+    @PatchMapping("/enterprises/{id}")
     public ResponseEntity<?> putEnterprise(@RequestBody Enterprise enterprise, @PathVariable Integer id) {
         try {
             Enterprise newEnterprise = enterpriseService.getEnterpriseById(id);
@@ -67,7 +67,7 @@ public class ControllerEnterprise {
         }
     }
 
-    @DeleteMapping("/enterprise/{id}")
+    @DeleteMapping("/enterprises/{id}")
     public ResponseEntity<?> deleteEnterprise(@PathVariable Integer id){
         try {
             enterpriseService.deleteEnterpriseById(id);
