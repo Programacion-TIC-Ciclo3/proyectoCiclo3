@@ -28,7 +28,7 @@ public class ControllerEnterprise {
         return new ResponseEntity<>(enterpriseService.getEnterprises(), HttpStatus.OK);
     }
 
-    @GetMapping("/enterprise/{id}")
+    @GetMapping("/enterprises/{id}")
     public ResponseEntity<Enterprise> getEnterprise (@PathVariable Integer id){
         try {
             Enterprise enterprise = enterpriseService.getEnterpriseById(id);
