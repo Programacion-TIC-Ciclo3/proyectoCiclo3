@@ -1,5 +1,7 @@
 package com.udea.proyect.Entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -23,6 +25,7 @@ public class Employee {
     @Id
     private int id;
     @ManyToOne
+    @JsonIgnore
     private Enterprise enterprise;
     @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
