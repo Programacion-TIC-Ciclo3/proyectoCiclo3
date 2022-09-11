@@ -60,7 +60,7 @@ public class Transaction {
         return amount;
     }
 
-    public void setAmount(float amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 
@@ -100,4 +100,12 @@ public class Transaction {
         return ("Transaction {id=" + id + ", concept=" + concept + ",amount=" + amount + ", user=" + user +", enterprise=" + enterprise + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt +"}");
     
 }
+/*estas clase las cree porque me salia error en el controlador revisar luego */
+    public Employee getuser() {
+        return null;
+    }
+
+    public Enterprise getenterprise() {
+        return null;
+    }
 }

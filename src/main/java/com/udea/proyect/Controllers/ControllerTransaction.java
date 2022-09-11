@@ -1,7 +1,7 @@
 package com.udea.proyect.Controllers;
 
-import com.udea.proyect.Entities.Employee;
-import com.udea.proyect.Services.EmployeeServices;
+import com.udea.proyect.Entities.Transaction;
+import com.udea.proyect.Services.TransactionServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,55 +14,56 @@ public class ControllerTransaction {
     @Autowired
     private TransactionServices transactionServices;
 
-    @GetMapping("/enterprises")
-    public ResponseEntity<List<Enterprise>> getEnterprises(){
-        return new ResponseEntity<>(enterpriseService.getEnterprises(), HttpStatus.OK);
+    @GetMapping("/trasaction")
+    public ResponseEntity<List<Transaction>> getTransaction(){
+        return new ResponseEntity<>(transactionServices.getTransaction(), HttpStatus.OK);
     }
 
-    @GetMapping("/enterprises/{id}")
-    public ResponseEntity<Enterprise> getEnterprise (@PathVariable Integer id){
+    @GetMapping("/transaction/{id}")
+    public ResponseEntity<Transaction> getTransaction (@PathVariable Integer id){
         try {
-            Enterprise enterprise = enterpriseService.getEnterpriseById(id);
-            return new ResponseEntity<Enterprise>(enterprise, HttpStatus.OK);
+            Transaction transaction = transactionServices.getTransactionById(id);
+            return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<Enterprise>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<Transaction>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PostMapping("/enterprises")
-    public ResponseEntity<Enterprise> saveEnterprise (@RequestBody Enterprise enterprise){
+    @PostMapping("/transaction")
+    public ResponseEntity<Transaction> saveEnterprise (@RequestBody Transaction transaction){
         try{
-            enterpriseService.createEnterprise(enterprise);
-            return new ResponseEntity<Enterprise>(enterprise,HttpStatus.OK);
+            transactionServices.createTransaction(transaction);
+            return new ResponseEntity<Transaction>(transaction,HttpStatus.OK);
         }catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @PatchMapping("/enterprises/{id}")
-    public ResponseEntity<?> putEnterprise(@RequestBody Enterprise enterprise, @PathVariable Integer id) {
+    @PatchMapping("/transaction/{id}")
+    public ResponseEntity<?> putEnterprise(@RequestBody Transaction transaction, @PathVariable Integer id) {
         try {
-            Enterprise newEnterprise = enterpriseService.getEnterpriseById(id);
-            newEnterprise.setName(enterprise.getName());
-            newEnterprise.setAddress(enterprise.getAddress());
-            newEnterprise.setDocument(enterprise.getDocument());
-            newEnterprise.setCreatedAt(enterprise.getCreatedAt());
-            newEnterprise.setUpdatedAt(enterprise.getUpdatedAt());
-            newEnterprise.setPhone(enterprise.getPhone());
+            Transaction newTransaction = transactionServices.getTransactionById(id);
+            newTransaction.setId(transaction.getId());
+            newTransaction.setConcept(transaction.getConcept());
+            newTransaction.setAmount(transaction.getAmount());
+            newTransaction.setUser(transaction.getuser());
+            newTransaction.setCreatedAt(transaction.getCreatedAt());
+            newTransaction.setUpdatedAt(transaction.getUpdatedAt());
+            newTransaction.setEnterprise(transaction.getenterprise());
 
-            enterpriseService.createEnterprise(newEnterprise);
+            transactionServices.createTransaction(newTransaction);
 
-            return new ResponseEntity<>(newEnterprise, HttpStatus.OK);
+            return new ResponseEntity<>(newTransaction, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @DeleteMapping("/enterprises/{id}")
+    @DeleteMapping("/transaction/{id}")
     public ResponseEntity<?> deleteEnterprise(@PathVariable Integer id){
         try {
-            enterpriseService.deleteEnterpriseById(id);
-            return new ResponseEntity<>("Empresa eliminada exitosamente",HttpStatus.OK);
+            transactionServices.deleteTransactionById(id);
+            return new ResponseEntity<>("transacion eliminada exitosamente",HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
