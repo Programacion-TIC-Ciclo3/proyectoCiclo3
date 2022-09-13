@@ -23,6 +23,7 @@ public class Transaction {
     @JsonIgnore
     @ManyToOne
     private Employee user;
+    @JsonIgnore
     @ManyToOne
     private Enterprise enterprise;
     @Column

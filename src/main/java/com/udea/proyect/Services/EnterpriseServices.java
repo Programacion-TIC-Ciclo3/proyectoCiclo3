@@ -36,22 +36,9 @@ public class EnterpriseServices {
         repositoryEnterprise.deleteById(id);
         return "Empresa eliminada correctamente";
     }
-
+    //Prueba 1
     public List<Transaction> getTransactions(Integer id){
-        Enterprise enterprise = repositoryEnterprise.findById(id).get();
-        return enterprise.getTransactions();
+        List<Transaction> enterprise = repositoryEnterprise.findById(id).get().getTransactions();
+        return enterprise;
     }
-
-    public List<?> getTransactions2 (Integer id){
-        List<Transaction> newTransactions = new ArrayList<Transaction>();
-    for (int i = 0; i < Transaction.size; i++) {
-        int container = repositoryTransaction.findAll().get(i).getEnterprise().getId();
-        if(container == id){
-            newTransactions.add(repositoryTransaction.findAll().get(i));
-            return newTransactions;
-        }
-    }
-    return null;
-}
-
 }
