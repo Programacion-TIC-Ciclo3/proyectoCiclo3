@@ -14,7 +14,7 @@ public class ControllerTransaction {
     @Autowired
     private TransactionServices transactionServices;
 
-    @GetMapping("/trasaction")
+    @GetMapping("/transaction")
     public ResponseEntity<List<Transaction>> getTransaction(){
         return new ResponseEntity<>(transactionServices.getTransaction(), HttpStatus.OK);
     }

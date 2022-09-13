@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.udea.proyect.Entities.Enterprise;
+import com.udea.proyect.Entities.Transaction;
 import com.udea.proyect.Repositories.RepositoriesEnterpise;
 
 @Service
@@ -30,6 +31,10 @@ public class EnterpriseServices {
     public String deleteEnterpriseById(Integer id){
         repositoryEnterprise.deleteById(id);
         return "Empresa eliminada correctamente";
+    }
+
+    public List<Transaction> getTransactions(Integer id){
+        return repositoryEnterprise.getTransactions(id);
     }
 
 }
