@@ -1,7 +1,5 @@
 package com.udea.proyect.Controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +22,13 @@ public class ControllerEnterprise {
     private EnterpriseServices enterpriseService;
 
     @GetMapping("/enterprises")
-    public ResponseEntity<List<Enterprise>> getEnterprises(){
-        return new ResponseEntity<>(enterpriseService.getEnterprises(), HttpStatus.OK);
+    public ResponseEntity<?> getEnterprises(){
+        try {
+            return new ResponseEntity<>(enterpriseService.getEnterprises(), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
+        }
+        
     }
 
     @GetMapping("/enterprises/{id}")
@@ -76,6 +79,27 @@ public class ControllerEnterprise {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    //Prueba 1
+    @GetMapping("/enterprise/{id}/movements")
+    public ResponseEntity<?> getTransaction (@PathVariable Integer id){
+        try {
+            return new ResponseEntity<>(enterpriseService.getTransactions(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<Enterprise>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    //Prueba 2
+    @GetMapping("/enterprises/{id}/transactions")
+    public ResponseEntity<?> getMovements(@PathVariable Integer id){
+        try {
+            return new ResponseEntity<>(enterpriseService.getTransactions2(id), HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
+        }
+    }
+        
 }
 
 

@@ -46,10 +46,10 @@ public class ControllerTransaction {
             newTransaction.setId(transaction.getId());
             newTransaction.setConcept(transaction.getConcept());
             newTransaction.setAmount(transaction.getAmount());
-            newTransaction.setUser(transaction.getuser());
+            newTransaction.setUser(transaction.getUser());
             newTransaction.setCreatedAt(transaction.getCreatedAt());
             newTransaction.setUpdatedAt(transaction.getUpdatedAt());
-            newTransaction.setEnterprise(transaction.getenterprise());
+            newTransaction.setEnterprise(transaction.getEnterprise());
 
             transactionServices.createTransaction(newTransaction);
 

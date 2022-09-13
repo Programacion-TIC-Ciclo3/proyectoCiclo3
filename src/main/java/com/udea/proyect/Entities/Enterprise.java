@@ -25,7 +25,7 @@ public class Enterprise {
     @OneToMany(mappedBy = "enterprise")
     private List<Employee> users;
     @OneToMany(mappedBy = "enterprise")
-    private List<Transaction> transactions;
+    private static List<Transaction> transactions;
     @Column
     private LocalDate createdAt;
     @Column

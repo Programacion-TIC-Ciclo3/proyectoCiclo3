@@ -8,15 +8,19 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "transaction")
 public class Transaction {
+    public static int size;
     @Column
     private double amount;
     @Id
     private int id;
     @Column
     private String concept;
+    @JsonIgnore
     @ManyToOne
     private Employee user;
     @ManyToOne
@@ -64,7 +68,7 @@ public class Transaction {
         this.amount = amount;
     }
 
-    public Employee user() {
+    public Employee getUser() {
         return user;
     }
 
@@ -72,7 +76,8 @@ public class Transaction {
         this.user = user;
     }
 
-    public Enterprise enterprise() {
+
+    public Enterprise getEnterprise() {
         return enterprise;
     }
 
@@ -100,12 +105,12 @@ public class Transaction {
         return ("Transaction {id=" + id + ", concept=" + concept + ",amount=" + amount + ", user=" + user +", enterprise=" + enterprise + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt +"}");
     
 }
-/*estas clase las cree porque me salia error en el controlador revisar luego */
+/*estas clase las cree porque me salia error en el controlador revisar luego 
     public Employee getuser() {
         return null;
     }
 
     public Enterprise getenterprise() {
         return null;
-    }
+    }*/
 }
