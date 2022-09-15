@@ -28,6 +28,7 @@ public class Employee {
     @JsonIgnore
     private Enterprise enterprise;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Transaction> transactions;
     @Column
     private LocalDate updatedAt;

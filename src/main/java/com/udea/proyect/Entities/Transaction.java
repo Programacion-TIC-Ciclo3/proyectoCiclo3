@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+
 @Entity
 @Table(name = "transaction")
 public class Transaction {
@@ -20,11 +21,10 @@ public class Transaction {
     private int id;
     @Column
     private String concept;
-    @JsonIgnore
     @ManyToOne
     private Employee user;
-    @JsonIgnore
     @ManyToOne
+    @JsonIgnore
     private Enterprise enterprise;
     @Column
     private LocalDate updatedAt;
@@ -77,7 +77,6 @@ public class Transaction {
         this.user = user;
     }
 
-
     public Enterprise getEnterprise() {
         return enterprise;
     }
@@ -105,13 +104,5 @@ public class Transaction {
     public String toString() {
         return ("Transaction {id=" + id + ", concept=" + concept + ",amount=" + amount + ", user=" + user +", enterprise=" + enterprise + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt +"}");
     
-}
-/*estas clase las cree porque me salia error en el controlador revisar luego 
-    public Employee getuser() {
-        return null;
     }
-
-    public Enterprise getenterprise() {
-        return null;
-    }*/
 }
