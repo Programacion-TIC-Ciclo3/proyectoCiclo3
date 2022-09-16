@@ -32,34 +32,23 @@ public class ControllerEmployee {
     }
 
     @PostMapping("/users")
-    public ResponseEntity<Employee> saveEmployee (@RequestBody Employee employee){
+    public ResponseEntity<?> saveEmployee (@RequestBody Employee employee){
         try{
             employeeServices.createEmployee(employee);
             return new ResponseEntity<Employee>(employee,HttpStatus.OK);
         }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
         }
     }
 
     @PatchMapping("/user/{id}")
-    public ResponseEntity<?> putEmployee(@RequestBody Employee employee, @PathVariable Integer id) {
+    public ResponseEntity<?> putEmployee(@RequestBody Employee usuario_update, @PathVariable Integer id) {
         try {
-            Employee newEmployee = employeeServices.getEmployeeById(id);
-            newEmployee.setName(employee.getName());
-            newEmployee.setEmail(employee.getEmail());
-            newEmployee.setRol(employee.getRol());
-            newEmployee.setEnterprise(employee.getEnterprise());
-            newEmployee.setTransactions(employee.getTransactions());
-            newEmployee.setCreatedAt(employee.getCreatedAt());
-            newEmployee.setUpdatedAt(employee.getUpdatedAt());
-            newEmployee.setProfile(employee.getProfile());
+            Employee usuario_bd = employeeServices.setEmployeeById(usuario_update, id);
 
-
-            employeeServices.createEmployee(newEmployee);
-
-            return new ResponseEntity<>(newEmployee, HttpStatus.OK);
+            return new ResponseEntity<>(usuario_bd, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
         }
     }
 

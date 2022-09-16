@@ -95,7 +95,6 @@ public class ControllerEnterprise {
     @PostMapping("/enterprises/{id}/movements")
     public ResponseEntity<?> postTransactions(@PathVariable Integer id, @RequestBody Transaction transactions){
         try {
-            int container = enterpriseService.getEnterpriseById(id).getId();
             return new ResponseEntity<>(enterpriseService.setTransaction(id, transactions), HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);

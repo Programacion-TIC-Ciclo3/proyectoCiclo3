@@ -1,7 +1,5 @@
 package com.udea.proyect.Entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.time.LocalDate;
 import java.util.List;
 
@@ -12,6 +10,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity
 @Table(name = "Employee")
@@ -25,10 +25,9 @@ public class Employee {
     @Id
     private int id;
     @ManyToOne
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private Enterprise enterprise;
     @OneToMany(mappedBy = "user")
-    @JsonIgnore
     private List<Transaction> transactions;
     @Column
     private LocalDate updatedAt;
