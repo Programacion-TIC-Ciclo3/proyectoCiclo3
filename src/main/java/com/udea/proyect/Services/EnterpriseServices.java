@@ -41,13 +41,12 @@ public class EnterpriseServices {
         return enterprise;
     }
 
-    public String setTransaction(Integer id, Transaction transactions){
-        repositoryTransaction.save(transactions);
-        return "Transaccion añadida correctamente";
-    }
 
     public String deleteTransactionById(Integer id){
         repositoryTransaction.deleteById(id);
         return "Transaccion eliminado correctamente";
     }
+
+
+
 }

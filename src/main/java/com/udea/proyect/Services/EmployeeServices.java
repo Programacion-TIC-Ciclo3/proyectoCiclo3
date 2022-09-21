@@ -18,9 +18,8 @@ public class EmployeeServices {
         return repositoryEmployee.findAll();
     }
 
-    public String createEmployee(Employee employee){
-        repositoryEmployee.save(employee);
-        return "Usuario creado exitosamente";
+    public Employee createEmployee(Employee employee){
+        return repositoryEmployee.save(employee);
     }
 
     public Employee getEmployeeById(Integer id){
@@ -36,7 +35,6 @@ public class EmployeeServices {
         try {
         Employee usuario_bd = getEmployeeById(id);
         
-
         if(usuario_update.getName() != null && !usuario_update.getName().equals("")){
             usuario_bd.setName(usuario_update.getName());
         }
@@ -44,7 +42,7 @@ public class EmployeeServices {
             usuario_bd.setEmail(usuario_update.getEmail());
         }
         if(usuario_update.getCreatedAt() != null && !usuario_update.getCreatedAt().equals("")){
-            usuario_bd.setCreatedAt(usuario_update.getCreatedAt());    
+            usuario_bd.setCreatedAt(usuario_update.getCreatedAt()); 
         }
         if(usuario_update.getEnterprise() != null && !usuario_update.getEnterprise().equals("")){
             usuario_bd.setEnterprise(usuario_update.getEnterprise());
@@ -61,7 +59,6 @@ public class EmployeeServices {
         if(usuario_update.getUpdatedAt() != null && !usuario_update.getUpdatedAt().equals("")){
             usuario_bd.setUpdatedAt(usuario_update.getUpdatedAt());
         }
-
         return repositoryEmployee.save(usuario_bd);
 
     } catch (Exception e) {

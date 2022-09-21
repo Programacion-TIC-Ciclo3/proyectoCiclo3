@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.udea.proyect.Entities.Enterprise;
-import com.udea.proyect.Entities.Transaction;
 import com.udea.proyect.Services.EnterpriseServices;
 
 
@@ -43,12 +42,11 @@ public class ControllerEnterprise {
     }
 
     @PostMapping("/enterprises")
-    public ResponseEntity<Enterprise> saveEnterprise (@RequestBody Enterprise enterprise){
+    public ResponseEntity<?> saveEnterprise (@RequestBody Enterprise enterprise){
         try{
-            enterpriseService.createEnterprise(enterprise);
-            return new ResponseEntity<Enterprise>(enterprise,HttpStatus.OK);
+            return new ResponseEntity<>(enterpriseService.createEnterprise(enterprise),HttpStatus.OK);
         }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
         }
     }
 
@@ -92,14 +90,7 @@ public class ControllerEnterprise {
         }
     }
 
-    @PostMapping("/enterprises/{id}/movements")
-    public ResponseEntity<?> postTransactions(@PathVariable Integer id, @RequestBody Transaction transactions){
-        try {
-            return new ResponseEntity<>(enterpriseService.setTransaction(id, transactions), HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
-        }
-    }
+
 
     @DeleteMapping("/enterprises/{idmovement}/movements")
     public ResponseEntity<?> deleteMovements(@PathVariable Integer idmovement){
@@ -110,11 +101,7 @@ public class ControllerEnterprise {
             return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
     }
 }
-    @PatchMapping("/enterprises/{id}/movements")
-    public ResponseEntity<?> patchMovements(@RequestBody Enterprise enterprise, @PathVariable Integer id) {
-        return null;
-        }
-    }
+}
 
         
 
