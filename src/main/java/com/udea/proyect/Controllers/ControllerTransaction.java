@@ -19,53 +19,21 @@ public class ControllerTransaction {
         return new ResponseEntity<>(transactionServices.getTransaction(), HttpStatus.OK);
     }
 
-    @GetMapping("/transaction/{id}")
-    public ResponseEntity<Transaction> getTransaction (@PathVariable Integer id){
+    @PostMapping("/enterprises/{id}/movements")
+    public ResponseEntity<?> setTransaction(@PathVariable Integer id, @RequestBody Transaction transaction_update){
         try {
-            Transaction transaction = transactionServices.getTransactionById(id);
-            return new ResponseEntity<Transaction>(transaction, HttpStatus.OK);
+            return new  ResponseEntity<>(transactionServices.setTransaction(id, transaction_update), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<Transaction>(HttpStatus.NOT_FOUND);
+            return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
         }
     }
 
-    @PostMapping("/transaction")
-    public ResponseEntity<Transaction> saveEnterprise (@RequestBody Transaction transaction){
-        try{
-            transactionServices.createTransaction(transaction);
-            return new ResponseEntity<Transaction>(transaction,HttpStatus.OK);
-        }catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
-
-    @PatchMapping("/transaction/{id}")
-    public ResponseEntity<?> putEnterprise(@RequestBody Transaction transaction, @PathVariable Integer id) {
+    @PatchMapping("/enterprises/{id}/movements")
+    public ResponseEntity<?> setTransactionPatch (@PathVariable Integer id, @RequestBody Transaction transaction_update) {
         try {
-            Transaction newTransaction = transactionServices.getTransactionById(id);
-            newTransaction.setId(transaction.getId());
-            newTransaction.setConcept(transaction.getConcept());
-            newTransaction.setAmount(transaction.getAmount());
-            newTransaction.setUser(transaction.getUser());
-            newTransaction.setCreatedAt(transaction.getCreatedAt());
-            newTransaction.setUpdatedAt(transaction.getUpdatedAt());
-            newTransaction.setEnterprise(transaction.getEnterprise());
-
-            transactionServices.createTransaction(newTransaction);
-
-            return new ResponseEntity<>(newTransaction, HttpStatus.OK);
+            return new ResponseEntity<>(transactionServices.setTransactionPatch(id, transaction_update), HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+           return new ResponseEntity<>(e, HttpStatus.NOT_FOUND);
         }
-    }
-
-    @DeleteMapping("/transaction/{id}")
-    public ResponseEntity<?> deleteEnterprise(@PathVariable Integer id){
-        try {
-            transactionServices.deleteTransactionById(id);
-            return new ResponseEntity<>("transacion eliminada exitosamente",HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
+}
 }

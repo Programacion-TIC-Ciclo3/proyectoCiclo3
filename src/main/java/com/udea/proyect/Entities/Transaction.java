@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 @Table(name = "transaction")
 public class Transaction {
-    public static int size;
     @Column
     private double amount;
     @Id
