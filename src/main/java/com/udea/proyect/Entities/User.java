@@ -1,6 +1,5 @@
 package com.udea.proyect.Entities;
 
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
 

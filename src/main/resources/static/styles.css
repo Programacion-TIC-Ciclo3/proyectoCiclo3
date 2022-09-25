@@ -2,22 +2,29 @@ body, main {
     display: flex;
     font-family: arial;
 }
+
 body {
     flex-direction: column;
     text-align: center;
 }
+
 main {
     flex-direction: row;
 }
+
 article, aside {
     overflow-y: auto;
+    overflow-x: auto;
 }
+
 article {
     flex: 3;
 }
+
 aside {
     flex: 1;
 }
+
 #header{
     position:relative;
     display: flex;
@@ -28,6 +35,7 @@ aside {
     color: aliceblue;
     padding: 15px;
 }
+
 #logo{
     position:flex;
     top:30px;
@@ -39,35 +47,37 @@ aside {
     text-align:center;
     line-height:60px;
 }
+
 #menu{
     position: flex;
-    width: 100%;
     height: 100%;
     background: #edeeef;
     padding: 35px;
 }
+
 #menu ul li {
     color: #387F46;
     text-align: center;
     padding: 30px;
-    list-style: none;
     border-bottom: 1px solid rgba(100,100,100);
     font-family: 'Times New Roman';
     font-size:0px;
 }
+
 #img{
     width: 130x;
     height: 150px;
 }
+
 #content{
     margin: 0;
-    margin-left: 100px;
     height: 40px;
     padding-top: 5%;
     margin-bottom: 1%;
     font-size: 20px;
     text-decoration-line: underline;
 }
+
 #login{
     color: #FDFEFE;
     display: center;
@@ -80,10 +90,12 @@ aside {
     border: 5px solid #000000 ;
     border-radius: 30px;
 }
+
 input::placeholder{
     font-style: italic;
     color: #000000;
 }
+
 .controles{
     margin: 0;
     width: 100%;
@@ -96,13 +108,13 @@ input::placeholder{
     color: #000000;
     border-radius: 10px;
 }
+
 .boton{
     width: 102%;
     height: 40px;
     background: #ee883d;
     border-radius: none;
-
-    font-style:italic;
+    font-style: italic;
     cursor: pointer;
 }
 

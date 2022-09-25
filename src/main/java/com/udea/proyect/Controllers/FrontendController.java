@@ -21,12 +21,21 @@ public class FrontendController {
     public String indexModel (Model model, @AuthenticationPrincipal OidcUser principal){
 
         if(principal != null){
-            System.out.println(principal.getClaims());
             User user = this.userService.getOrCreateUser(principal.getClaims());
             model.addAttribute("user", user);
 
         }
         return "index";
+    }
+
+    @GetMapping("/NewTransaction")
+    public String newTransaction(){
+        return "newTransaction";
+    }
+
+    @GetMapping("/Principal")
+    public String Principal(){
+        return "Principal";
     }
     
 }

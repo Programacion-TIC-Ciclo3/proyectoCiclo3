@@ -1,4 +1,4 @@
-package com.udea.proyect;
+package com.udea.proyect.Security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
