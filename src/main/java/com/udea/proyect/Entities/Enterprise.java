@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -39,7 +37,6 @@ public class Enterprise {
     private List<Transaction> transactions;
     @Column
     @NotNull
-    @Temporal(TemporalType.DATE)
     private LocalDate createdAt;
     @Column
     private LocalDate updatedAt;

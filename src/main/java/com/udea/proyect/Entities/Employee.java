@@ -12,8 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
@@ -42,10 +40,8 @@ public class Employee {
     @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
     @Column
-    @Temporal(TemporalType.DATE)
     private LocalDate updatedAt;
     @NotNull
-    @Temporal(TemporalType.DATE)
     @Column
     private LocalDate createdAt;
     @OneToOne(mappedBy = "user")
