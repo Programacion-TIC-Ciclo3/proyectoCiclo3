@@ -12,7 +12,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -24,6 +28,7 @@ public class Employee {
     private String name;
     @NotEmpty
     @Column
+    @Email
     private String email;
     @NotEmpty
     @Column
@@ -37,8 +42,10 @@ public class Employee {
     @OneToMany(mappedBy = "user")
     private List<Transaction> transactions;
     @Column
+    @Temporal(TemporalType.DATE)
     private LocalDate updatedAt;
-    @NotEmpty
+    @NotNull
+    @Temporal(TemporalType.DATE)
     @Column
     private LocalDate createdAt;
     @OneToOne(mappedBy = "user")

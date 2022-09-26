@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -36,7 +38,8 @@ public class Enterprise {
     @OneToMany(mappedBy = "enterprise")
     private List<Transaction> transactions;
     @Column
-    @NotEmpty
+    @NotNull
+    @Temporal(TemporalType.DATE)
     private LocalDate createdAt;
     @Column
     private LocalDate updatedAt;
