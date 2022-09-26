@@ -23,7 +23,7 @@ public class Enterprise {
     @Column
     private String address;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @OneToMany(mappedBy = "enterprise")
     private List<Employee> users;

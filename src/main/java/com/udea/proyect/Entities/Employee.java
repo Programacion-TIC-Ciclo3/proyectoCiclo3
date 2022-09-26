@@ -25,7 +25,7 @@ public class Employee {
     @Column
     private Role role;
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @ManyToOne
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
