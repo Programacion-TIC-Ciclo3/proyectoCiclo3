@@ -33,9 +33,13 @@ public class FrontendController {
         return "newTransaction";
     }
 
-    @GetMapping("/Principal")
+    @GetMapping("/principal")
     public String Principal(){
-        return "Principal";
+        return "principal";
+    }
+    @GetMapping("/Enterprise")
+    public String newEnterprise(){
+        return "aenterprise";
     }
     
 }

@@ -12,7 +12,7 @@
 <body>
 <main>
     <div class="px-4 py-5 my-5 text-center">
-        <img src="img/budget.png" class="d-block mx-auto mb-4" height="100" alt="Icono Empresa"/>
+        <img src="../static/img/budget.png" class="d-block mx-auto mb-4" height="100" alt="Icono Empresa"/>
         <h1 class="diplay-5 fw-bold">Sistema GestiónIE</h1>
         <div class="col-lg-6 mx-auto">
             <p class="lead mb-4">La mejor solución para su negocio</p>
@@ -21,7 +21,7 @@
             </div>
             <div sec:authorize="isAuthenticated()">
                 <h3 th:text="'Bienvenido, ' + ${user.getEmail}"></h3>
-                <a th:href="@{/NewTransaction}" class="btn btn-primary btn-lg px-4 gap-3">Llevame a la aplicacion</a>
+                <a th:href="@{/principal}" class="btn btn-primary btn-lg px-4 gap-3">Llevame a la aplicacion</a>
             </div>
 </main>
 
