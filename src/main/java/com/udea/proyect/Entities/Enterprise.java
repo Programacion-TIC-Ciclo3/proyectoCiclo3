@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "enterprise")
@@ -18,10 +19,10 @@ public class Enterprise {
     @NotEmpty
     @Column
     private String name;
-    @NotEmpty
+    @NotNull
     @Column
     private String document;
-    @NotEmpty
+    @NotNull
     @Column
     private String phone;
     @NotEmpty
