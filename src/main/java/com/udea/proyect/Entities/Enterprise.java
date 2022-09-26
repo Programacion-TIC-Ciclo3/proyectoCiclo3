@@ -10,16 +10,21 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "enterprise")
 public class Enterprise {
+    @NotEmpty
     @Column
     private String name;
+    @NotEmpty
     @Column
     private String document;
+    @NotEmpty
     @Column
     private String phone;
+    @NotEmpty
     @Column
     private String address;
     @Id
@@ -30,6 +35,7 @@ public class Enterprise {
     @OneToMany(mappedBy = "enterprise")
     private List<Transaction> transactions;
     @Column
+    @NotEmpty
     private LocalDate createdAt;
     @Column
     private LocalDate updatedAt;

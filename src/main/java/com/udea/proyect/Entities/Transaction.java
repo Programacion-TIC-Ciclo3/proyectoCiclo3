@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -16,11 +17,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Entity
 @Table(name = "transaction")
 public class Transaction {
+    @NotEmpty
     @Column
     private double amount;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @NotEmpty
     @Column
     private String concept;
     @ManyToOne
@@ -31,6 +34,7 @@ public class Transaction {
     private Enterprise enterprise;
     @Column
     private LocalDate updatedAt;
+    @NotEmpty
     @Column
     private LocalDate createdAt;
 
