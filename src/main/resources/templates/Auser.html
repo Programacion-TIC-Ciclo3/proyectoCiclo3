@@ -44,6 +44,8 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
                             <th scope="col">Rol</th>
+                            <th scope="col">Transacciones</th>
+                            <th scope="col">Empresa</th>
                             <th scope="col">Acciones</th>
                           </tr>
                         </thead>
@@ -52,6 +54,13 @@
                             <td th:text="${employee.id}"></td>
                             <td th:text="${employee.name}"></td>
                             <td th:text="${employee.email}"></td>
+                            <td th:text="${employee}"></td>
+                            <td th:switch="${employee.transactions.empty}">
+                              <p th:case="!empty">Si</p>
+                              <p th:case="!null">No</p>
+                            </td>
+                                
+                            <td th:text="${employee.enterprise.name}"> No claro</td>
                             <td><form th:action="@{/Employee/{id}(id=${employee.id})}" th:method="delete">
                               <button type="submit">Delete</button>
                             </form></td>

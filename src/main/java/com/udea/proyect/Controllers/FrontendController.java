@@ -16,7 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class FrontendController {
@@ -42,9 +45,14 @@ public class FrontendController {
         return "index";
     }
 
+    @GetMapping("/error")
+    public String error(){
+        return "error";
+    }
+
     @GetMapping("/NewMovimiento")
     public String newTransaction(){   
-        return "newTransaction";
+        return "NewTransaction";
     }
 
     @GetMapping("/principal")
@@ -88,7 +96,21 @@ public class FrontendController {
 
     @DeleteMapping("/Employee/{id}")
     public String deleteEmployee(@PathVariable("id") Integer id){
-        employeeServices.deleteEmployeeById(id);
-        return "redirect:/Usuario";
+        try {
+            employeeServices.deleteEmployeeById(id);
+            return "redirect:/Usuario";
+        } catch (Exception e) {
+            return "redirect:/error";
+        } 
+    }
+    
+    @PostMapping("/transaction/front")
+    public String postTransaction(@ModelAttribute("transaction") Transaction transaction_update){
+        try {
+            transactionServices.createTransaction(transaction_update);
+            return "redirect:/newTransaction";
+        } catch (Exception e) {
+            return "redirect:/error";
+        }
     }
 }
