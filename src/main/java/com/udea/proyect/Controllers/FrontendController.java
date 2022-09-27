@@ -1,7 +1,10 @@
 package com.udea.proyect.Controllers;
 
 import com.udea.proyect.Entities.User;
+import com.udea.proyect.Services.EmployeeServices;
 import com.udea.proyect.Services.UserService;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.oauth2.core.oidc.user.OidcUser;
 import org.springframework.stereotype.Controller;
@@ -12,6 +15,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class FrontendController {
 
     UserService userService;
+    @Autowired
+    EmployeeServices employeeServices;
 
     public FrontendController(UserService userService) {
         this.userService = userService;
@@ -30,16 +35,19 @@ public class FrontendController {
 
     @GetMapping("/NewTransaction")
     public String newTransaction(){
+        
         return "newTransaction";
     }
 
-    @GetMapping("/principal")
+    @GetMapping("/Principal")
     public String Principal(){
-        return "principal";
+        return "Principal";
     }
-    @GetMapping("/Enterprise")
-    public String newEnterprise(){
-        return "aenterprise";
+
+    @GetMapping("/prueba")
+    public String employees(Model model){
+        model.addAttribute("employee", employeeServices.getEmployees());
+        return "prueba";
     }
     
 }
