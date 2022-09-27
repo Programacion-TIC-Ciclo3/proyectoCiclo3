@@ -28,18 +28,33 @@ public class FrontendController {
         return "index";
     }
 
-    @GetMapping("/NewTransaction")
+    @GetMapping("/NewMovimiento")
     public String newTransaction(){
-        return "newTransaction";
+        return "bmovimiento";
     }
 
     @GetMapping("/principal")
     public String Principal(){
         return "principal";
     }
-    @GetMapping("/Enterprise")
+    @GetMapping("/NewEmpresa")
     public String newEnterprise(){
+        return "benterprise";
+    }
+    @GetMapping("/NewUsuario")
+    public String newEmploye(){
+        return "buser";
+    }
+    @GetMapping("/Movimiento")
+    public String newMovimiento(){
+        return "amovimiento";
+    }
+    @GetMapping("/Empresa")
+    public String newEmpresa(){
         return "aenterprise";
     }
-    
+    @GetMapping("/Usuario")
+    public String newUsuario(){
+        return "auser";
+    }
 }
