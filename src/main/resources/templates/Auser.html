@@ -19,9 +19,9 @@
                     <li>
                         <img id="img" src="img/budget.png" alt="No carga la imágen" class="Logo">
                     </li>
-                    <li><a class="btn btn-secondary" href="/" role="button">Ingresos y Egresos</a></li>
-                    <li><a class="btn btn-secondary" href="/" role="button">Usuarios</a></li>
-                    <li><a class="btn btn-secondary" href="/" role="button">Empresas</a></li>
+                    <li><a class="btn btn-secondary" href="/NewMovimiento" role="button">Ingresos y Egresos</a></li>
+                    <li><a class="btn btn-secondary" href="/NewUsuario" role="button">Usuarios</a></li>
+                    <li><a class="btn btn-secondary" href="/NewEmpresa" role="button">Empresas</a></li>
                 </ul>
             </nav>
         </aside>
@@ -33,7 +33,7 @@
             </div>
         </section>
         <!--Boton de nuevo-->
-        <div id="boton4"><a href="../templates/2user.html">Nuevo</a></div>
+        <div id="boton4"><a href="/NewUsuario">Nuevo</a></div>
         <!--tabla de datos-->
         <section>
                 <div id="login1">
@@ -43,43 +43,24 @@
                             <th scope="col">#</th>
                             <th scope="col">Nombre</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Telefono</th>
-                            <th scope="col"></th>
+                            <th scope="col">Rol</th>
+                            <th scope="col">Acciones</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
-                          <tr>
-                            <th scope="row">4</th>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                          </tr>
+                          <tr th:each="employee : ${employee}">
+                            <td th:text="${employee.id}"></td>
+                            <td th:text="${employee.name}"></td>
+                            <td th:text="${employee.email}"></td>
+                            <td><form th:action="@{/Employee/{id}(id=${employee.id})}" th:method="delete">
+                              <button type="submit">Delete</button>
+                            </form></td>
+                        </tr>
                         </tbody>
                       </table>
                 </div>
          </section>       
      </article>
   </main>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
