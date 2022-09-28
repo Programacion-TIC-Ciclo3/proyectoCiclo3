@@ -54,7 +54,7 @@
                             <td th:text="${employee.id}"></td>
                             <td th:text="${employee.name}"></td>
                             <td th:text="${employee.email}"></td>
-                            <td th:text="${employee}"></td>
+                            <td th:text="usuario"></td>
                             <td th:switch="${employee.transactions.empty}">
                               <p th:case="!empty">Si</p>
                               <p th:case="!null">No</p>

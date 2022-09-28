@@ -52,7 +52,7 @@ public class FrontendController {
 
     @GetMapping("/NewMovimiento")
     public String newTransaction(){   
-        return "NewTransaction";
+        return "NewTransaction2";
     }
 
     @GetMapping("/principal")
@@ -73,10 +73,21 @@ public class FrontendController {
     public String newEmploye(){
         return "buser";
     }
+
+    @GetMapping("/Movimiento2")
+    public String movimiento(){
+        return "amovimiento";
+    }
+
+    @GetMapping("/Empresa2")
+    public String empresa2(){
+        return "aenterprise";
+    }
+
     @GetMapping("/Movimiento")
     public String newMovimiento(Model model){
         model.addAttribute("transaction", this.transactionServices.getTransaction());
-        return "amovimiento";
+        return "Amovimiento";
     }
     @GetMapping("/Empresa")
     public String newEmpresa(Model model){

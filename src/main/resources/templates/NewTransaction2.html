@@ -13,53 +13,42 @@
    <main>
         <article>
             <div id ="table">
+            <section>
                 <div id="header">
                     <div id="logo">Sistema de gestion de Ingresos y Gastos</div>
                 </div>
                 <div id="content">
             <h3>Nuevo Movimiento de Dinero</h3>
                 </div>
-            <form th:object="${transaction}" method="post" th:action="@{/transaction/front}">
-                <div>
-                    <label for="input_amount">Monto</label>
-                    <input th:field="*{amount}" id="input_amount" type="number" placeholder="Monto de Dinero">
-                </div>
-                <div>
-                    <label for="input_concept">Concepto</label>
-                    <input th:field="*{concept}" id="input_concept" type="text" placeholder="Concepto">
-                </div>
-                <div>
-                    <label for="input_created_at">Fecha Creacion</label>
-                    <input th:field="*{created_at}" type="date" id="input_created_at"
-                    value="2000-18-22"
-                    min="1950-01-01" max="2999-12-31">
-                </div>
-                <div>
-                    <label for="input_update_at">Fecha Actualizacion</label>
-                    <input th:field="*{update_at}" type="date" id="input_update_at"
-                    value="2000-18-22"
-                    min="1950-01-01" max="2999-12-31">
-                </div>
-                <bottom type="submit"> Registrar transaction</bottom>
-                </form>
-            
+                <div id="login">
+            <h4><b>Monto</b></h4>
+            <input class="controles" type="text" name="Nombre" value="" placeholder="Monto de Dinero">
+            <h4><b>Concepto</b></h4>
+            <input class="controles" type="text" name="Correo" value="" placeholder="Concepto">
+            <h4><b>Fecha</b></h4>
+            <label for="start"></label>
+            <input type="date" id="start" name="trip-start"
+                   value="2000-18-22"
+                   min="1950-01-01" max="2999-12-31">
+           
+            <input class="boton" type="submit" name="" value="Enviar">
         </div>
+    </div>
+</section>
 </article>
-
 <aside>
     <nav id="menu">
         <ul>
             <li>
                 <img id="img" src="img/budget.png" alt="No carga la imágen" class="Logo">
             </li>
-                    <li><a class="btn btn-secondary" href="/NewMovimiento" role="button">Ingresos y Egresos</a></li>
-                    <li><a class="btn btn-secondary" href="/NewUsuario" role="button">Usuarios</a></li>
-                    <li><a class="btn btn-secondary" href="/NewEmpresa" role="button">Empresas</a></li>
+            <li><a class="btn btn-secondary" href="/NewMovimiento" role="button">Ingresos y Egresos</a></li>
+            <li><a class="btn btn-secondary" href="/NewUsuario" role="button">Usuarios</a></li>
+            <li><a class="btn btn-secondary" href="/NewEmpresa" role="button">Empresas</a></li>
     </ul>
     </nav>
 </aside>
 </main>
-
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
